@@ -1,0 +1,44 @@
+<h1>{{storeName | uppercase}}</h1>
+<h3>Choose Your Favorite Catogroy please</h3>
+<select #cricket (change)="update($event)">
+	<option value="default"> select----</option>
+	<option *ngFor="let Catogroy of CategoryList" [value]="Catogroy">
+		{{Catogroy.Name}}
+	</option>
+</select>
+<div class="card" style="width: 25rem;">
+    <img class="card-img-top" [src]="imageproduct" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">mini twix</p>
+      <!-- <h3>{{"we offer " + Discount+" discount !"}}</h3> -->
+      <h3 *ngIf="Discount !== 'No Discount' ; then show ; else hidden "></h3>
+<ng-template #show>
+    <h3> {{Discount | percent}}</h3>
+</ng-template>
+
+<ng-template #hidden>
+
+</ng-template>
+      
+    </div>
+  </div>
+ <!-- <button (click) ="buy()" *ngIf="buy ; then show; else hidden"  >buy </button> -->
+ <table class="table table-bordered" *ngIf="!IsPurshased">
+  <thead class="thead-dark">
+  <th scope="col" *ngFor = "let column of headers">
+    {{column}}
+  </th>
+  </thead>
+  <tr *ngFor = "let row of ProductList">
+    <td *ngFor = "let column of headers">
+
+      {{column}}
+    </td>
+  </tr>
+ </table>
+ <button (click)="buy()" class="btn btn-success">buy</button>
+ <div *ngIf="IsPurshased">
+  {{"Thanks for purchasing from our Store, "+nameOfClient}}
+</div>
+
+  

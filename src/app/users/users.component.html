@@ -1,0 +1,15 @@
+<h5 class="listOfUsers">List of Users</h5>
+<div class="users">
+<div *ngFor="let user of users" >
+    <div class="card cardd" style="width: 18rem; height: 12rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{"Name : " + user.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{"UserName : " + user.username}}</h6>
+          <p class="card-text">{{"Email : " + user.email}}</p>
+          
+        </div>
+      </div>
+</div>
+</div>
+<div class="clearfix"></div>
+{{errorMessage}}
